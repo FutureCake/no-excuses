@@ -1,0 +1,14 @@
+body {
+    background-color: gainsboro;
+    padding: 5px 10px;
+}
+
+h1 {
+    white-space: nowrap;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: rgb(56, 57, 61);
+    }
+}
