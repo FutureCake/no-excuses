@@ -21,6 +21,10 @@
         },
         "default_popup": "popup/popup.html"
     },
+    "permissions": [
+        "favicon",
+        "storage"
+    ],
     "content_scripts": [
         {
             "js": [
@@ -31,10 +35,6 @@
                 "https://*/*"
             ]
         }
-    ],
-    "permissions": [
-        "favicon",
-        "storage"
     ],
     "web_accessible_resources": [
         {
