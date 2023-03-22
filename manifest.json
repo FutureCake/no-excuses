@@ -33,7 +33,8 @@
         }
     ],
     "permissions": [
-        "favicon"
+        "favicon",
+        "storage"
     ],
     "web_accessible_resources": [
         {
