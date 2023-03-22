@@ -1,16 +1,14 @@
-function getFaviconImage(url) {
+// function getFaviconImage(url) {
  
-    const url = new URL(chrome.runtime.getURL("/_favicon/"));
-    url.searchParams.set("pageUrl", url);
-    url.searchParams.set("size", "32");
+//     const fav_url = new URL(chrome.runtime.getURL("/_favicon/"));
+//     fav_url.searchParams.set("pageUrl", url);
+//     fav_url.searchParams.set("size", "32");
  
-    const img = document.createElement('img');
-    img.src = url.toString();    
-    return img;
-}
+//     const img = document.createElement('img');
+//     img.src = fav_url.toString();    
+//     return img;
+// }
 
-chrome.runtime.sendMessage({
-    image: getFaviconImage(window.location.host)
-});
-
-console.log(window.location.host);
+// chrome.runtime.sendMessage({
+//     image: getFaviconImage(window.location.host)
+// });
