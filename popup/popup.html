@@ -1,27 +1,32 @@
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <title>Stop it</title>
-        <link rel="stylesheet" href="popup.css">
-        
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <body>
-        <h1>Stop your useless addiction</h1>
+    <title>Stop it</title>
+    
+    <link rel="stylesheet" href="popup.css">
+
+    <script src="../scripts/storage_manager.js"></script>
+
+</head>
+
+<body>
+    <h1>Stop your useless addiction</h1>
+    <div>
         <h3>Your current addictions:</h3>
         <ul id="addictions">
-            <li id="new-addiction-data">
+            <li id="new-addiction" class="hidden">
                 <input type="url" name="url" id="addiction-url">
-                
+                <div><img src="" alt=""></div>
             </li>
-            <li id="add-addiction">Add addiction</li>
         </ul>
+        <button id="add-addiction">Add addiction</button>
+    </div>
 
-        <script src="popup.js"></script>
-    </body>
+    <script src="popup.js"></script>
+</body>
 
 </html>
