@@ -1,3 +1,7 @@
+li, ul, button {
+    all: unset;
+}
+
 body {
     background-color: gainsboro;
     padding: 5px 10px;
