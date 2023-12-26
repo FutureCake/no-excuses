@@ -38,13 +38,13 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 var options = {
   mode: process.env.NODE_ENV || 'development',
   entry: {
-    newtab: path.join(__dirname, 'src', 'pages', 'Newtab', 'index.tsx'),
-    // options: path.join(__dirname, 'src', 'pages', 'Options', 'index.tsx'),
-    popup: path.join(__dirname, 'src', 'pages', 'Popup', 'index.tsx'),
-    background: path.join(__dirname, 'src', 'pages', 'Background', 'index.ts'),
-    contentScript: path.join(__dirname, 'src', 'pages', 'Content', 'index.ts'),
-    // devtools: path.join(__dirname, 'src', 'pages', 'Devtools', 'index.js'),
-    // panel: path.join(__dirname, 'src', 'pages', 'Panel', 'index.jsx'),
+    newtab: path.join(__dirname, 'src', 'Pages', 'Newtab', 'index.tsx'),
+    // options: path.join(__dirname, 'src', 'Pages', 'Options', 'index.tsx'),
+    popup: path.join(__dirname, 'src', 'Pages', 'Popup', 'index.tsx'),
+    background: path.join(__dirname, 'src', 'Pages', 'Background', 'index.ts'),
+    contentScript: path.join(__dirname, 'src', 'Pages', 'Content', 'index.ts'),
+    // devtools: path.join(__dirname, 'src', 'Pages', 'Devtools', 'index.js'),
+    // panel: path.join(__dirname, 'src', 'Pages', 'Panel', 'index.jsx'),
   },
   chromeExtensionBoilerplate: {
     notHotReload: ['background', 'contentScript', 'devtools'],
