@@ -33,7 +33,7 @@ var server = new WebpackDevServer(
         client: {
             webSocketTransport: 'ws', //was sockjs
         },
-        webSocketServer: 'ws', // was sockje
+        webSocketServer: 'ws', // was sockjs
         host: 'localhost',
         port: env.PORT,
         static: {
