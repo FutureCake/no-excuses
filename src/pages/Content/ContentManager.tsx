@@ -7,14 +7,10 @@ class ContentManager {
     private root?: Root;
 
     constructor() {
-        console.log("init");
         if (window.location.href.indexOf("www.netflix") !== -1) {
-            console.log("match");
             document.addEventListener("readystatechange", () => {
-                console.log("change: ", document.readyState);
                 const state = document.readyState;
                 if (state === "interactive" || state === "complete") {
-                    console.log("render");
                     this.root = this.setupReactContext();
                     this.onMessage();
                 }
