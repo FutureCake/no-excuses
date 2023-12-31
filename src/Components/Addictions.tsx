@@ -1,8 +1,8 @@
 import React, { Component, ReactNode } from "react";
-import Addiction from "./Addiction";
+import Addiction, { AddictionData } from "./Addiction/Addiction";
 
 interface AddictionsProps {
-    addictions: AddictionsProps[];
+    addictions: AddictionData[];
     onRemove: (index: number) => void;
 }
 
@@ -13,9 +13,9 @@ class Addictions extends Component<AddictionsProps> {
 
     render(): ReactNode {
         return (
-            <div>
-                {this.props.addictions.map(() => {
-                    return <Addiction url={""} />
+            <div id="addictions">
+                {this.props.addictions.map((addiction, index) => {
+                    return <Addiction url={addiction.url} index={index} onDelete={this.props.onRemove}/>
                 })}
             </div>
         );
