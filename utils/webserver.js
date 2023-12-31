@@ -27,13 +27,13 @@ var compiler = webpack(config);
 
 var server = new WebpackDevServer(
     {
-        https: true, //was false
+        https: false, //was true (original false) 
         hot: true,
         liveReload: false,
         client: {
-            webSocketTransport: 'ws', //was sockjs
+            webSocketTransport: 'sockjs', //was ws (original sockjs)
         },
-        webSocketServer: 'ws', // was sockjs
+        webSocketServer: 'sockjs', //was ws (original sockjs)
         host: 'localhost',
         port: env.PORT,
         static: {
