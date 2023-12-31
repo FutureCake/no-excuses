@@ -1,24 +1,23 @@
-import React from 'react';
+import React, { Component, ReactNode } from 'react';
 import './Popup.scss';
 
-const Popup = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/pages/Popup/Popup.jsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React!
-        </a>
-      </header>
-    </div>
-  );
-};
+class Popup extends Component {
+    constructor(props: any) {
+        super(props);
+    }
+
+    render(): ReactNode {
+        return (
+            <div>
+                <h1>Your addictions</h1>
+                <div>
+                    <div id='addictions'></div>
+                    <div id='new-addiction'></div>
+                </div>
+                <div>Add current website as addiction</div>
+            </div>
+        )
+    }
+}
 
 export default Popup;
