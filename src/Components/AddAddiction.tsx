@@ -1,4 +1,6 @@
 import React, { Component, ReactNode, SyntheticEvent } from "react";
+import cancel from "../assets/app/icons/cancel.png";
+import confirm from "../assets/app/icons/confirm.png";
 import { AddictionData } from "./Addiction/Addiction";
 
 interface AddAddictionProps {
@@ -41,8 +43,8 @@ class AddAddiction extends Component<AddAddictionProps> {
                 </div>
                 <div id="add-input">
                     <input type="text" name="url" id="url" onKeyUp={this.onKeyPress.bind(this)}/>
-                    <img src="../assets/app/icons/confirm.png" alt="add" onClick={this.createNewAddiction.bind(this)}/>
-                    <img src="../assets/app/icons/cancel.png" alt="cancel" />
+                    <img src={confirm} alt="add" onClick={this.createNewAddiction.bind(this)}/>
+                    <img src={cancel} alt="cancel" />
                 </div>
             </div>
         );

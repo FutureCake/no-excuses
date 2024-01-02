@@ -1,4 +1,6 @@
 import React, { Component, ReactNode } from "react";
+import del from "../../assets/app/icons/delete.png";
+import edit from "../../assets/app/icons/edit.png";
 import "./Addiction.scss";
 
 interface AddictionData {
@@ -26,8 +28,8 @@ class Addiction extends Component<AddictionProps> {
             <div className="addiction">
                 <p>{this.props.url}</p>
                 <div className="overlay">
-                    <img onClick={this.onEdit} src="../../assets/app/icons/edit.png" alt="edit" />
-                    <img onClick={this.props.onDelete?.bind(this, this.props.index)} src="../../assets/app/icons/delete.png" alt="delete" />
+                    <img className="icon" onClick={this.onEdit} src={edit} alt="edit" />
+                    <img className="icon" onClick={this.props.onDelete?.bind(this, this.props.index)} src={del} alt="delete" />
                 </div>
             </div>
         )
