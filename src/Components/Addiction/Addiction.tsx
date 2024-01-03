@@ -1,4 +1,5 @@
 import React, { Component, ReactNode } from "react";
+import blocked from "../../assets/app/icons/blocked.png";
 import del from "../../assets/app/icons/delete.png";
 import edit from "../../assets/app/icons/edit.png";
 import "./Addiction.scss";
@@ -26,6 +27,7 @@ class Addiction extends Component<AddictionProps> {
     render(): ReactNode {
         return (
             <div className="addiction">
+                <img className="icon" src={blocked}/>
                 <p>{this.props.url}</p>
                 <div className="overlay">
                     <img className="icon" onClick={this.onEdit} src={edit} alt="edit" />

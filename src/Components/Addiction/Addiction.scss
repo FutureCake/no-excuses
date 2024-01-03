@@ -1,16 +1,25 @@
 .addiction {
     position: relative;
-    margin-bottom: 5px;
-    padding: 3px 8px;
-    background: #c0c0c0;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    border-bottom: 1px solid #a9a9a9;
+    height: 32px;
+    min-width: 300px;
 
     p {
         font-size: 16px;
+        margin-top: -2px;
+    }
+
+    .icon {
+        height: 100%;
+        margin-left: 3px;
     }
 
     .overlay {
-
-        background: rgba($color: #cf7b7b, $alpha: 0.5);
+        visibility: hidden;
         position: absolute;
         left: 0;
         top: 0;
@@ -21,17 +30,17 @@
         justify-content: right;
         align-items: center;
         overflow: hidden;
- 
+
         .icon {
-            height: 120%;
-        }
-
-        &:hover {
-            
+            height: 100%;
         }
     }
 
-    &:last-child {
-        margin-bottom: 0;
+    &:hover {
+        background: #b9bec3;
     }
+}
+
+.addiction:hover .overlay {
+    visibility: visible;
 }
