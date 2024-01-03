@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from 'react';
-import AddAddiction from '../../Components/AddAddiction';
+import AddAddiction from '../../Components/AddAddiction/AddAddiction';
 import { AddictionData } from '../../Components/Addiction/Addiction';
 import Addictions from '../../Components/Addictions';
 import QuickAddAddiction from '../../Components/QuickAddAddiction';
@@ -21,7 +21,7 @@ class Popup extends Component<{}, PopupState> {
             addictions: [
                 {url: "wwww.youtube.com"},
                 {url: "wwww.netflix.com"},
-                {url: "wwww.amazonprime.com"},
+                {url: "wwww.amazonvideo.com"},
             ]
         }
     }
