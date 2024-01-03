@@ -2,11 +2,11 @@ import React, { Component, ReactNode, SyntheticEvent } from "react";
 import add from "../../assets/app/icons/add.png";
 import cancel from "../../assets/app/icons/cancel.png";
 import confirm from "../../assets/app/icons/confirm.png";
-import { AddictionData } from "../Addiction/Addiction";
+import { BlockedDomain } from "../Addiction/Addiction";
 import "./AddAddiction.scss";
 
 interface AddAddictionProps {
-    onNew: (addiction: AddictionData) => void;
+    onNew: (addiction: BlockedDomain) => void;
 }
 
 interface AddAddictionState {
