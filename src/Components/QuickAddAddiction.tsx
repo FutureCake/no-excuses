@@ -1,8 +1,8 @@
 import React, { Component, ReactNode } from "react";
-import { AddictionData } from "./Addiction/Addiction";
+import { BlockedDomain } from "./Addiction/Addiction";
 
 interface QuickAddAddictionProps {
-    onNew: (addiction: AddictionData) => void;
+    onNew: (addiction: BlockedDomain) => void;
 }
 
 class QuickAddAddiction extends Component<QuickAddAddictionProps> {

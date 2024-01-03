@@ -4,13 +4,14 @@ import del from "../../assets/app/icons/delete.png";
 import edit from "../../assets/app/icons/edit.png";
 import "./Addiction.scss";
 
-interface AddictionData {
+interface BlockedDomain {
+    id: number;
     url: string;
-    excludedSubDomeins?: string[];
+    excludedSubDomains?: string[];
     displayName?: string;
 }
 
-interface AddictionProps extends AddictionData{
+interface AddictionProps extends BlockedDomain{
     index: number;
     onDelete?: (index: number) => void;
 }
@@ -39,5 +40,5 @@ class Addiction extends Component<AddictionProps> {
 }
 
 export default Addiction;
-export type { AddictionData, AddictionProps };
+export type { AddictionProps, BlockedDomain };
 

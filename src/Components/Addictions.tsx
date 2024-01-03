@@ -1,8 +1,8 @@
 import React, { Component, ReactNode } from "react";
-import Addiction, { AddictionData } from "./Addiction/Addiction";
+import Addiction, { BlockedDomain } from "./Addiction/Addiction";
 
 interface AddictionsProps {
-    addictions: AddictionData[];
+    addictions: BlockedDomain[];
     onRemove: (index: number) => void;
 }
 
