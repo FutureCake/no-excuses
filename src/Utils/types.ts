@@ -1,3 +1,5 @@
+import { BlockedDomain } from "../Components/Addiction/Addiction";
+
 type Sender = "background" | "content" | "popup" | "newTab";
 
 interface Message {
@@ -5,13 +7,21 @@ interface Message {
     sender: Sender;
 }
 
-interface OnUrlMatched extends Message{
-    url: string;
-    tabId: number;
+interface PopupMessage extends Message {
+    action: "update" | "remove" | "get" | "add" | "set";
+    domains?: BlockedDomain[] | BlockedDomain;
 }
 
 
+
+interface ReplyMessage<T = void> {
+    message: string;
+    data?: T;
+}
+
 export {
     Message,
-    OnUrlMatched, Sender
+    PopupMessage,
+    ReplyMessage,
+    Sender
 };
