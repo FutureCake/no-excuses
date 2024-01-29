@@ -39,6 +39,7 @@ class AddAddiction extends Component<AddAddictionProps, AddAddictionState> {
         if (!this.newUrl) return;
 
         this.props.onNew({
+            id: Math.random() * 10000,
             url: this.newUrl
         });
 
