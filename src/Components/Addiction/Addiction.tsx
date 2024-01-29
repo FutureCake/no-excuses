@@ -11,9 +11,8 @@ interface BlockedDomain {
     displayName?: string;
 }
 
-interface AddictionProps extends BlockedDomain{
-    index: number;
-    onDelete?: (index: number) => void;
+interface AddictionProps extends BlockedDomain {
+    onDelete?: (id: number) => void;
 }
 
 class Addiction extends Component<AddictionProps> {
@@ -32,7 +31,7 @@ class Addiction extends Component<AddictionProps> {
                 <p>{this.props.url}</p>
                 <div className="overlay">
                     <img className="icon" onClick={this.onEdit} src={edit} alt="edit" />
-                    <img className="icon" onClick={this.props.onDelete?.bind(this, this.props.index)} src={del} alt="delete" />
+                    <img className="icon" onClick={this.props.onDelete?.bind(this, this.props.id)} src={del} alt="delete" />
                 </div>
             </div>
         )
