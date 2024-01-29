@@ -14,8 +14,8 @@ class Addictions extends Component<AddictionsProps> {
     render(): ReactNode {
         return (
             <div id="addictions">
-                {this.props.addictions.map((addiction, index) => {
-                    return <Addiction url={addiction.url} index={index} onDelete={this.props.onRemove}/>
+                {this.props.addictions.map((addiction) => {
+                    return <Addiction url={addiction.url} id={addiction.id} onDelete={this.props.onRemove}/>
                 })}
             </div>
         );
