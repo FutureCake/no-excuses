@@ -3,7 +3,6 @@ import AddAddiction from '../../Components/AddAddiction/AddAddiction';
 import { BlockedDomain } from '../../Components/Addiction/Addiction';
 import Addictions from '../../Components/Addictions';
 import QuickAddAddiction from '../../Components/QuickAddAddiction';
-import { Message, PopupMessage, ReplyMessage } from '../../Utils/types';
 import './Popup.scss';
 
 interface PopupState {
@@ -19,32 +18,10 @@ class Popup extends Component<{}, PopupState> {
             addictions: []
         }
 
-        chrome.runtime.onMessage.addListener(this.onExtensionMessage);
+        // chrome.runtime.onMessage.addListener(this.onExtensionMessage);
     }
 
     async componentDidMount(): Promise<void> {
-        chrome.runtime.sendMessage<PopupMessage, ReplyMessage<BlockedDomain[]>>({
-            message: "default domains",
-            sender: "popup",
-            action: "set",
-            domains: [
-                {id: 0, url: "wwww.youtube.com"},
-                {id: 1, url: "wwww.netflix.com"},
-                {id: 2, url: "wwww.amazonvideo.com"}
-            ],
-        }, (msg) => {
-            
-            console.log(msg);
-            if(!msg.data) return;
-            
-            console.log("set blocked domains");
-            this.setState({
-                addictions: msg.data
-            });
-        });
-    }
-
-    onExtensionMessage(msg: Message): void {
         
     }
 
