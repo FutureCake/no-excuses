@@ -1,3 +1,4 @@
 import ContentManager from "./ContentManager";
 
-const _ = new ContentManager();
+const manager = new ContentManager();
+manager.init();
