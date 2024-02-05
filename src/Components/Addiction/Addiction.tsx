@@ -6,9 +6,10 @@ import "./Addiction.scss";
 
 interface BlockedDomain {
     id: number;
-    url: string;
+    domain: string;
     excludedSubDomains?: string[];
     displayName?: string;
+    BlockOnlySpecificPages?: string[];
 }
 
 interface AddictionProps extends BlockedDomain {
@@ -28,7 +29,7 @@ class Addiction extends Component<AddictionProps> {
         return (
             <div className="addiction">
                 <img className="icon" src={blocked}/>
-                <p>{this.props.url}</p>
+                <p>{this.props.domain}</p>
                 <div className="overlay">
                     <img className="icon" onClick={this.onEdit} src={edit} alt="edit" />
                     <img className="icon" onClick={this.props.onDelete?.bind(this, this.props.id)} src={del} alt="delete" />

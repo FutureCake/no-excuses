@@ -30,9 +30,7 @@ class ContentManager {
         if (domain) {
             for (let i = 0; i < this.blockedDomains.length; i++) {
                 const blocked = this.blockedDomains[i];
-                console.log("CHECK: ", domain, "===", blocked.url, " - ", blocked.url === domain);
-                if (blocked.url === domain) {
-                    console.log("MATCHEDD");
+                if (blocked.domain === domain) {
                     return true;
                 }
             }

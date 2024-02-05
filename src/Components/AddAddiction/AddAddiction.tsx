@@ -40,7 +40,7 @@ class AddAddiction extends Component<AddAddictionProps, AddAddictionState> {
 
         this.props.onNew({
             id: Math.random() * 10000,
-            url: this.newUrl
+            domain: this.newUrl
         });
 
         this.onAdd();

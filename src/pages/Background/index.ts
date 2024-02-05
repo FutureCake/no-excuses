@@ -4,15 +4,15 @@ import { ExtensionMessage } from "../../Utils/types";
 const blocked: BlockedDomain[] = [
     {
         id: 12334,
-        url: "www.youtube.com"
+        domain: "www.youtube.com"
     },
     {
         id: 12335,
-        url: "www.instagram.com"
+        domain: "www.instagram.com"
     },
     {
         id: 12336,
-        url: "www.buzzfeed.com"
+        domain: "www.buzzfeed.com"
     }
 ]
 

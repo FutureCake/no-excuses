@@ -15,7 +15,7 @@ class Addictions extends Component<AddictionsProps> {
         return (
             <div id="addictions">
                 {this.props.addictions.map((addiction) => {
-                    return <Addiction url={addiction.url} id={addiction.id} onDelete={this.props.onRemove}/>
+                    return <Addiction domain={addiction.domain} id={addiction.id} onDelete={this.props.onRemove}/>
                 })}
             </div>
         );
