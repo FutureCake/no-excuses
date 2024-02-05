@@ -3,6 +3,7 @@ import { Root, createRoot } from "react-dom/client";
 import * as uri from "uri-js";
 import { BlockedDomain } from "../../Components/Addiction/Addiction";
 import { ExtensionMessage } from "../../Utils/types";
+import BlockedOverlay from "./BlockedOverlay";
 
 class ContentManager {
 
@@ -15,8 +16,6 @@ class ContentManager {
             recipient: "background",
             action: "get"
         });
-
-        console.log(this.blockedDomains);
 
         if (this.checkUrlBlocked(window.location.href)) {
             this.setupOverlay();
@@ -64,7 +63,7 @@ class ContentManager {
     }
 
     private renderOverlay(): void {
-        this.root?.render(<div style={{ position: "fixed", left: 0, top: 0, zIndex: 10000000, backgroundColor: "green", width: "100vw", height: "100vh" }}></div>);
+        this.root?.render(<BlockedOverlay/>);
     }
 }
 
