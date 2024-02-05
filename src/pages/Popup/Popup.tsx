@@ -3,6 +3,7 @@ import AddAddiction from '../../Components/AddAddiction/AddAddiction';
 import { BlockedDomain } from '../../Components/Addiction/Addiction';
 import Addictions from '../../Components/Addictions';
 import QuickAddAddiction from '../../Components/QuickAddAddiction';
+import { ExtensionMessage } from '../../Utils/types';
 import './Popup.scss';
 
 interface PopupState {
@@ -17,12 +18,16 @@ class Popup extends Component<{}, PopupState> {
         this.state = {
             addictions: []
         }
-
-        // chrome.runtime.onMessage.addListener(this.onExtensionMessage);
     }
 
     async componentDidMount(): Promise<void> {
-        
+        this.setState({
+            addictions: await chrome.runtime.sendMessage<ExtensionMessage, BlockedDomain[]>({
+                sender: "content",
+                recipient: "background",
+                action: "get"
+            })
+        });
     }
 
     onAddAddiction(addiction: BlockedDomain): void {
