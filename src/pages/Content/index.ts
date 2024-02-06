@@ -1,4 +1,4 @@
-import ContentManager from "./ContentManager.1";
+import ContentManager from "./ContentManager";
 
 const manager = new ContentManager();
 manager.init();
