@@ -169,7 +169,7 @@ var options = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'src/assets/extension/icons/icon-128.png',
+          from: 'src/assets/extension/icon-128.png',
           to: path.join(__dirname, 'build'),
           force: true,
         },
@@ -178,7 +178,7 @@ var options = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'src/assets/extension/icons/icon-34.png',
+          from: 'src/assets/extension/icon-34.png',
           to: path.join(__dirname, 'build'),
           force: true,
         },
