@@ -1,6 +1,6 @@
 import React, { Component, ReactNode } from "react";
 import { getDomainFromUrl } from "../Utils/helpers";
-import { BlockedDomain } from "./Addiction/Addiction";
+import { BlockedDomain } from "./Addictions/Addiction/Addiction";
 
 interface QuickAddAddictionProps {
     onNew: (addiction: BlockedDomain) => void;

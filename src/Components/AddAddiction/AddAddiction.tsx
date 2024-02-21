@@ -2,7 +2,7 @@ import React, { Component, ReactNode, SyntheticEvent } from "react";
 import add from "../../assets/app/icons/add.png";
 import cancel from "../../assets/app/icons/cancel.png";
 import confirm from "../../assets/app/icons/confirm.png";
-import { BlockedDomain } from "../Addiction/Addiction";
+import { BlockedDomain } from "../Addictions/Addiction/Addiction";
 import "./AddAddiction.scss";
 
 interface AddAddictionProps {

@@ -1,4 +1,4 @@
-import { BlockedDomain } from "../../Components/Addiction/Addiction";
+import { BlockedDomain } from "../../Components/Addictions/Addiction/Addiction";
 import { ExtensionMessage } from "../../Utils/types";
 
 const blocked: BlockedDomain[] = [

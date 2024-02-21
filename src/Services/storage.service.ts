@@ -1,4 +1,4 @@
-import { BlockedDomain } from "../Components/Addiction/Addiction";
+import { BlockedDomain } from "../Components/Addictions/Addiction/Addiction";
 
 async function getBlockedDomains(): Promise<BlockedDomain[]> {
     const urlsObj = await chrome.storage.local.get("urls") as { domains: BlockedDomain[] };

@@ -1,7 +1,7 @@
 import React from "react";
 import { Root, createRoot } from "react-dom/client";
 import * as uri from "uri-js";
-import { BlockedDomain } from "../../Components/Addiction/Addiction";
+import { BlockedDomain } from "../../Components/Addictions/Addiction/Addiction";
 import BlockedOverlay from "../../Components/BlockedOverlay/BlockedOverlay";
 import { ExtensionMessage } from "../../Utils/types";
 

@@ -1,6 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import AddAddiction from '../../Components/AddAddiction/AddAddiction';
-import { BlockedDomain } from '../../Components/Addiction/Addiction';
+import { BlockedDomain } from '../../Components/Addictions/Addiction/Addiction';
 import Addictions from '../../Components/Addictions';
 import QuickAddAddiction from '../../Components/QuickAddAddiction';
 import { ExtensionMessage } from '../../Utils/types';

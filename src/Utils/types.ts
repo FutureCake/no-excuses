@@ -1,4 +1,4 @@
-import { BlockedDomain } from "../Components/Addiction/Addiction";
+import { BlockedDomain } from "../Components/Addictions/Addiction/Addiction";
 
 type Entity = "background" | "content" | "popup" | "newTab";
 type Action = "update" | "remove" | "get" | "add" | "set";

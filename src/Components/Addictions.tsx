@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from "react";
-import Addiction, { BlockedDomain } from "./Addiction/Addiction";
+import Addiction, { BlockedDomain } from "./Addictions/Addiction/Addiction";
 
 interface AddictionsProps {
     addictions: BlockedDomain[];
