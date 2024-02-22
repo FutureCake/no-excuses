@@ -1,70 +1,69 @@
-import React, { Component, ReactNode } from 'react';
+import React, { useEffect, useState } from 'react';
 import AddAddiction from '../../Components/AddAddiction/AddAddiction';
-import { BlockedDomain } from '../../Components/Addictions/Addiction/Addiction';
 import Addictions from '../../Components/Addictions';
+import { BlockedDomain } from '../../Components/Addictions/Addiction/Addiction';
+import { AddictionsContext, IAddictionsContext } from '../../Components/AddictionsContext';
 import QuickAddAddiction from '../../Components/QuickAddAddiction';
-import { ExtensionMessage } from '../../Utils/types';
 import './Popup.scss';
 
-interface PopupState {
-    addictions: BlockedDomain[];
-}
 
-class Popup extends Component<{}, PopupState> {
-    
-    constructor(props: {}) {
-        super(props);
+function Popup() {
 
-        this.state = {
-            addictions: []
-        }
+    const [addictions, setAddictions] = useState<BlockedDomain[]>([]);
+
+    useEffect(() => {
+
+    });
+
+    const onAddAddiction = (addiction: BlockedDomain): void => {
+        setAddictions([...addictions, addiction]);
     }
 
-    async componentDidMount(): Promise<void> {
-        this.setState({
-            addictions: await chrome.runtime.sendMessage<ExtensionMessage, BlockedDomain[]>({
-                sender: "content",
-                recipient: "background",
-                action: "get"
-            })
+    const onRemoveAddiction = (id: number): void => {
+        const filtered = addictions.filter((addiction) => {
+            return addiction.id != id;
         });
+
+        setAddictions(filtered);
     }
 
-    onAddAddiction(addiction: BlockedDomain): void {
-        this.setState((prev) => {
-            // CHECK: is it bad to modify an readonly array inplace?
-            prev.addictions.push(addiction);
-            return {
-                addictions: prev.addictions
-            }
-        });
+    const onUpdateAddiction = (id: number, changes: Partial<BlockedDomain>): void => {
+
+        // TODO add the logic for manipulating an item in the array.
+        setAddictions(addictions);
     }
 
-    onRemoveAddiction(id: number): void {
-        this.setState((prev) => {
-
-            const filtered = prev.addictions.filter((addiction) => {
-                return addiction.id != id;
-            });
-
-            return {
-                addictions: filtered
-            }
-        });
+    const ctx: IAddictionsContext = {
+        updateAddiction: onUpdateAddiction,
+        removeAddiction: onRemoveAddiction,
+        addAddiction: onAddAddiction,
+        addictions: addictions
     }
 
-    render(): ReactNode {
-        return (
+    // async componentDidMount(): Promise < void> {
+    //     this.setState({
+    //         addictions: await chrome.runtime.sendMessage<ExtensionMessage, BlockedDomain[]>({
+    //             sender: "content",
+    //             recipient: "background",
+    //             action: "get"
+    //         })
+    //     });
+    // }
+
+
+
+    return (
+        <AddictionsContext.Provider value={ctx}>
             <div id='popup'>
                 <h1 id='title'>Your addictions</h1>
                 <div id='addictions-manager'>
-                    <Addictions addictions={this.state.addictions} onRemove={this.onRemoveAddiction.bind(this)}/>
-                    <AddAddiction onNew={this.onAddAddiction.bind(this)}/>
+                    <Addictions addictions={addictions} onRemove={() => { }} />
+                    <AddAddiction onNew={() => { }} />
                 </div>
-                <QuickAddAddiction onNew={this.onAddAddiction.bind(this)}/>
+                <QuickAddAddiction onNew={() => { }} />
             </div>
-        );
-    }
+        </AddictionsContext.Provider>
+    );
 }
 
 export default Popup;
