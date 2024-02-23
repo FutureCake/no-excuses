@@ -28,7 +28,7 @@ class AddictionPreview extends Component<AddictionPreviewProps, AddictionPreview
     render(): ReactNode {
         return (
             <div className="addiction-preview">
-                <h2>{this.props.displayName}</h2>
+                <h2 onClick={this.props.onUserAction.bind(null, "info")}>{this.props.displayName}</h2>
                 <h3>{this.state.addictionLevel}</h3>
                 <p>{this.state.timeSinceLastAccess}</p>
                 <p>{this.props.blockedOn}</p>
