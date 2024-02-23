@@ -25,24 +25,40 @@ interface AddictionProps extends BlockedDomain {
     onDelete?: (id: number) => void;
 }
 
-class Addiction extends Component<AddictionProps> {
+interface AddictionState {
+    openContent: boolean;
+    editContent: boolean;
+}
+
+class Addiction extends Component<AddictionProps, AddictionState> {
     constructor(props: AddictionProps) {
         super(props);
+
+        this.state = {
+            openContent: false,
+            editContent: false
+        }
     }
 
     onPreviewEvent(type: PreviewActionType): void {
-
+        if (type === "info") {
+            this.setState((prev) => {
+                return {
+                    openContent: !prev.openContent
+                }
+            });
+        }
     }
 
-    updateAddiction(): void {
+    updateAddiction(index: number, changes: Partial<BlockedDomain>): void {
 
     }
 
     render(): ReactNode {
         return (
             <div className="addiction-wrapper">
-                <AddictionPreview {...this.props} onUserAction={() => { }} />
-                <AddictionContent {...this.props} onModificationSave={() => { }} />
+                <AddictionPreview {...this.props} onUserAction={this.onPreviewEvent.bind(this)} />
+                {this.state.openContent && <AddictionContent {...this.props} editMode={this.state.editContent} onModificationSave={this.updateAddiction.bind(this)} />}
             </div>
         )
     }
