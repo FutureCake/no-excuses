@@ -1,5 +1,6 @@
 import React, { Component, ReactNode } from "react";
 import { AddictionProps } from "../Addiction/Addiction";
+import "./AddictionPreview.scss";
 
 type PreviewActionType = "info" | "edit" | "delete";
 type AddictionSeverity = "severe" | "high" | "medium" | "low" | "barely" | "indeterminable";
@@ -28,10 +29,12 @@ class AddictionPreview extends Component<AddictionPreviewProps, AddictionPreview
     render(): ReactNode {
         return (
             <div className="addiction-preview">
-                <h2 onClick={this.props.onUserAction.bind(null, "info")}>{this.props.displayName}</h2>
-                <h3>{this.state.addictionLevel}</h3>
-                <p>{this.state.timeSinceLastAccess}</p>
-                <p>{this.props.blockedOn}</p>
+                <h2 className="preview-title" onClick={this.props.onUserAction.bind(null, "info")}>{this.props.displayName}</h2>
+                <div className="preview-items">
+                    <h3>{this.state.addictionLevel}</h3>
+                    <p>{this.state.timeSinceLastAccess}</p>
+                    <p>{this.props.blockedOn}</p>
+                </div>
             </div>
         );
     }
