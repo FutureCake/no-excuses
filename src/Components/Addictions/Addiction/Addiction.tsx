@@ -40,7 +40,7 @@ class Addiction extends Component<AddictionProps> {
 
     render(): ReactNode {
         return (
-            <div className="addiction">
+            <div className="addiction-wrapper">
                 <AddictionPreview {...this.props} onUserAction={() => { }} />
                 <AddictionContent {...this.props} onModificationSave={() => { }} />
             </div>
