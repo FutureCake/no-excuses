@@ -3,7 +3,6 @@ import Addiction, { BlockedDomain } from "../Addiction/Addiction";
 
 interface AddictionsListProps {
     addictions: BlockedDomain[];
-    onRemove: (index: number) => void;
 }
 
 class AddictionsList extends Component<AddictionsListProps> {
@@ -15,7 +14,7 @@ class AddictionsList extends Component<AddictionsListProps> {
         return (
             <div id="addictions">
                 {this.props.addictions.map((addiction) => {
-                    return <Addiction {...addiction} onDelete={this.props.onRemove} />
+                    return <Addiction {...addiction} />
                 })}
             </div>
         );
