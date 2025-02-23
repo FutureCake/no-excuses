@@ -1,0 +1,28 @@
+.addiction {
+
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+
+    .edit-addiction {
+        margin-right: 10px;
+
+        &:hover {
+            cursor: pointer;
+            color: #2f82ff;
+        }
+    }
+
+    .addiction-title {
+        text-transform: capitalize;
+        font-size: 18px;
+        font-weight: normal;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+
+}

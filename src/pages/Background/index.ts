@@ -1,24 +1,17 @@
-import { BlockedDomain } from "../../Components/Addictions/Addiction/Addiction";
-import { ExtensionMessage } from "../../Utils/types";
+import { BlockedDomain, ExtensionMessage } from "../../Utils/types";
 
 const blocked: BlockedDomain[] = [
     {
-        id: 12334,
-        domain: "www.youtube.com",
-        blockedOn: "23/02/2022",
-        displayName: "Youtube"
+        name: "youtube",
+        urls: ["www.youtube.com"],
     },
     {
-        id: 12335,
-        domain: "www.instagram.com",
-        blockedOn: "23/02/2022",
-        displayName: "Instagram"
+        name: "instagram",
+        urls: ["www.instagram.com"],
     },
     {
-        id: 12336,
-        domain: "www.buzzfeed.com",
-        blockedOn: "23/02/2022",
-        displayName: "BuzzFeed"
+        name: "buzzfeed",
+        urls: ["www.buzzfeed.com"],
     }
 ]
 

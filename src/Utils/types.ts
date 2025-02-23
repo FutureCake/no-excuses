@@ -1,16 +1,15 @@
-import { BlockedDomain } from "../Components/Addictions/Addiction/Addiction";
+export type Entity = "background" | "content" | "popup" | "newTab";
+export type Action = "update" | "remove" | "get" | "add" | "set";
 
-type Entity = "background" | "content" | "popup" | "newTab";
-type Action = "update" | "remove" | "get" | "add" | "set";
-
-interface ExtensionMessage {
+export interface ExtensionMessage {
     sender: Entity;
     recipient: Entity;
     action?: Action;
     domains?: BlockedDomain[] | BlockedDomain;
 }
 
-export {
-    Action, Entity, ExtensionMessage
-};
+export interface BlockedDomain {
+    name: string;
+    urls: string[];
+}
 

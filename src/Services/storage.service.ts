@@ -1,4 +1,4 @@
-import { BlockedDomain } from "../Components/Addictions/Addiction/Addiction";
+import { BlockedDomain } from "../Utils/types";
 
 async function getBlockedDomains(): Promise<BlockedDomain[]> {
     const urlsObj = await chrome.storage.local.get("urls") as { domains: BlockedDomain[] };
@@ -39,9 +39,9 @@ async function removeBlockedDomains(...oldDomains: BlockedDomain[]): Promise<Blo
 async function updateBlockedDomain(updated: BlockedDomain): Promise<boolean> {
 
     const domains = await getBlockedDomains();
-    domains.map((domain) => {
-        return (domain.id === updated.id) ? updated : domain;
-    });
+    // domains.map((domain) => {
+    // return (domain.id === updated.id) ? updated : domain;
+    // });
     return overwriteBlockedDomains(...domains);
 }
 

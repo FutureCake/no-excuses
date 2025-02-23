@@ -1,21 +1,17 @@
-import React from "react";
 import { Root, createRoot } from "react-dom/client";
 import * as uri from "uri-js";
-import { BlockedDomain } from "../../Components/Addictions/Addiction/Addiction";
-import BlockedOverlay from "../../Components/BlockedOverlay/BlockedOverlay";
-import { ExtensionMessage } from "../../Utils/types";
 
 class ContentManager {
 
     private root?: Root;
-    private blockedDomains: BlockedDomain[] = [];
+    // private blockedDomains: BlockedDomain[] = [];
 
     public async init(): Promise<void> {
-        this.blockedDomains = await chrome.runtime.sendMessage<ExtensionMessage, BlockedDomain[]>({
-            sender: "content",
-            recipient: "background",
-            action: "get"
-        });
+        // this.blockedDomains = await chrome.runtime.sendMessage<ExtensionMessage, BlockedDomain[]>({
+        //     sender: "content",
+        //     recipient: "background",
+        //     action: "get"
+        // });
 
         if (this.checkUrlBlocked(window.location.href)) {
             this.setupOverlay();
@@ -27,12 +23,12 @@ class ContentManager {
         console.log(domain);
 
         if (domain) {
-            for (let i = 0; i < this.blockedDomains.length; i++) {
-                const blocked = this.blockedDomains[i];
-                if (blocked.domain === domain) {
-                    return true;
-                }
-            }
+            // for (let i = 0; i < this.blockedDomains.length; i++) {
+            //     const blocked = this.blockedDomains[i];
+            //     if (blocked.domain === domain) {
+            //         return true;
+            //     }
+            // }
         }
 
         return false;
@@ -63,7 +59,7 @@ class ContentManager {
     }
 
     private renderOverlay(): void {
-        this.root?.render(<BlockedOverlay/>);
+        // this.root?.render(<BlockedOverlay />);
     }
 }
 
