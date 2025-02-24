@@ -40,7 +40,7 @@ export default function AddictionsProvider(props: AddictionsProviderProps) {
     }
 
     const addAddiction = (data: BlockedDomain) => {
-
+        setAddictions([...addictions, data]);
     }
 
     const ctx = {
