@@ -3,19 +3,31 @@
     color: #fff;
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+    background: #141414;
+    border-radius: 8px;
+    margin-bottom: 5px;
 
-    .edit-addiction {
-        margin-right: 10px;
+    .addiction-actions {
 
-        &:hover {
-            cursor: pointer;
-            color: #2f82ff;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        .addiction-action {
+            margin-right: 10px;
+
+            &:hover {
+                cursor: pointer;
+                color: #2f82ff;
+            }
         }
     }
 
+
     .addiction-title {
-        text-transform: capitalize;
         font-size: 18px;
         font-weight: normal;
 
