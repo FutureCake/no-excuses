@@ -31,10 +31,10 @@ export async function addBlockedDomains(...newDomains: Omit<BlockedDomain, "id">
 
     if (isErr(domains)) return domains;
 
-    const lastId = domains.value[domains.value.length - 1].id;
+    const lastId = domains.value.length > 0 ? domains.value[domains.value.length - 1].id : 0;
     const newDomainsWithId = newDomains.map((domain, index) => {
         return {
-            id: lastId + index,
+            id: lastId + index + 1,
             ...domain
         }
     });
