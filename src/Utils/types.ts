@@ -9,7 +9,12 @@ export interface ExtensionMessage {
 }
 
 export interface BlockedDomain {
+    id: number;
     name: string;
-    urls: string[];
+    url: string;
 }
 
+export type Ok<T> = { type: 'ok'; value: T };
+export type Err<E extends Error> = { type: 'err'; error: E };
+
+export type Result<T, E extends Error = Error> = Ok<T> | Err<E>;
