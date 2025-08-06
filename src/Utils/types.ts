@@ -1,11 +1,11 @@
 export type Entity = "background" | "content" | "popup" | "newTab";
-export type Action = "update" | "remove" | "get" | "add" | "set";
+export type Action = "close-tab" | "toggle-quick-add";
 
-export interface ExtensionMessage {
+export interface ExtensionMessage<T = undefined> {
     sender: Entity;
     recipient: Entity;
-    action?: Action;
-    domains?: BlockedDomain[] | BlockedDomain;
+    action: Action;
+    data?: T
 }
 
 export interface BlockedDomain {
