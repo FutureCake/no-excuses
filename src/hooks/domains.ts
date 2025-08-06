@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getBlockedDomains } from "../../../services/storage";
-import { isErr } from "../../../utils/helpers";
-import { BlockedDomain } from "../../../utils/types";
+import { getBlockedDomains } from "../services/storage";
+import { isErr } from "../utils/helpers";
+import { BlockedDomain } from "../utils/types";
 import useDomainsUpdated from "./domains-updated";
 
 export default function useBlockedDomains() {
