@@ -1,20 +1,35 @@
 import React, { useState } from "react";
+import { removeBlockedDomains } from "../../../../../../services/storage";
+import { isErr } from "../../../../../../utils/helpers";
 import './style.scss';
 
 export interface AddictionProps {
     name: string;
-    index: number;
+    id: number;
 }
 
 export default function Addiction(props: AddictionProps) {
 
-    const { name, index } = props;
+    const { name, id } = props;
     const [hovering, setHovering] = useState(false);
+
+    const removeAddiction = async (id: number) => {
+        const result = await removeBlockedDomains(id);
+
+        if (isErr(result)) console.log("Failed to remove addiction");
+    }
 
     return (
         <div className="addiction" onMouseOver={() => setHovering(true)} onMouseOut={() => setHovering(false)}>
-            {hovering && <h3 className="edit-addiction">Edit</h3>}
             <h3 className="addiction-title">{name}</h3>
+            {
+                hovering &&
+                <div className="addiction-actions">
+                    <button onClick={() => console.log("Stats")} className="addiction-action">Stats</button>
+                    <button onClick={() => console.log("Edit")} className="addiction-action">Edit</button>
+                    <button onClick={() => removeAddiction(id)} className="addiction-action">Delete</button>
+                </div>
+            }
         </div>
     )
 }
