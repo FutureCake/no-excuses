@@ -25,13 +25,21 @@ export async function overwriteBlockedDomains(...domains: BlockedDomain[]): Prom
     }
 }
 
-export async function addBlockedDomains(...newDomains: BlockedDomain[]): Promise<Result<BlockedDomain[]>> {
+export async function addBlockedDomains(...newDomains: Omit<BlockedDomain, "id">[]): Promise<Result<BlockedDomain[]>> {
 
     const domains = await getBlockedDomains();
 
     if (isErr(domains)) return domains;
 
-    return await overwriteBlockedDomains(...domains.value, ...newDomains);
+    const lastId = domains.value[domains.value.length - 1].id;
+    const newDomainsWithId = newDomains.map((domain, index) => {
+        return {
+            id: lastId + index,
+            ...domain
+        }
+    });
+
+    return await overwriteBlockedDomains(...domains.value, ...newDomainsWithId);
 }
 
 export async function removeBlockedDomains(...ids: number[]): Promise<Result<BlockedDomain[]>> {
