@@ -1,24 +1,27 @@
 import React from "react";
+import { addBlockedDomains } from "../../../../services/storage";
+import { isErr } from "../../../../utils/helpers";
 import useValidUrl from "./hooks/valid-url";
 import './style.scss';
 
-export type NewAddictionProps = {
-    onBlock: (domain: string) => void;
-}
+export default function NewAddiction() {
 
-export default function NewAddiction(props: NewAddictionProps) {
-
-    const { onBlock } = props;
     const { valid, domain, setUrl, url } = useValidUrl();
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUrl(e.target.value);
     }
 
-    const addAddiction = () => {
+    const addAddiction = async () => {
         if (!domain || !valid) return;
 
-        onBlock(domain);
+        const result = await addBlockedDomains({
+            name: domain,
+            url: domain
+        });
+
+        if (isErr(result)) console.log("something went wrong while adding");
+
         setUrl("");
     }
 
