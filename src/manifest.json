@@ -3,8 +3,8 @@
     "name": "no excuses",
     "description": "An extension that blocks access to all you annoying addictions like instagram, facebook, youtube, netflix etc",
     "permissions": [
-        "webRequest",
-        "storage"
+        "storage",
+        "tabs"
     ],
     "host_permissions": [
         "*://*/*",
