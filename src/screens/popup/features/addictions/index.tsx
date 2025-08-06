@@ -17,7 +17,7 @@ export default function Addictions(props: AddictionsProps) {
             {
                 (addictions !== undefined)
                     ? addictions.map((addiction, index) => (
-                        <Addiction {...addiction} index={index} key={index} />
+                        <Addiction {...addiction} key={index} />
                     ))
                     : <p>Failed to load your addictions :(</p>
             }
