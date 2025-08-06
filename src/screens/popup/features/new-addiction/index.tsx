@@ -9,7 +9,8 @@ export default function NewAddiction() {
     const { valid, domain, setUrl, url } = useValidUrl();
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setUrl(e.target.value);
+        const formatted = e.target.value.trim().toLowerCase();
+        setUrl(formatted);
     }
 
     const addAddiction = async () => {
@@ -28,7 +29,7 @@ export default function NewAddiction() {
     return (
         <div id="new-addiction">
             <input id="new-addiction-input" type="text" placeholder="Add a new addiction url" value={url} onChange={onChange} />
-            {valid && <button onClick={addAddiction}>{`Block ${domain}`}</button>}
+            {valid && <button id="add-addiction" onClick={addAddiction}>{`Add ${domain}`}</button>}
         </div>
     );
 }
