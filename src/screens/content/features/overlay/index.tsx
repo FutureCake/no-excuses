@@ -2,13 +2,20 @@ import React from "react";
 import { ExtensionMessage } from "../../../../utils/types";
 import "./style.scss";
 
-export default function Overlay() {
+export type OverlayProps = {
+    addictionId: number;
+}
+
+export default function Overlay(props: OverlayProps) {
+
+    const { addictionId } = props
 
     const exit = () => {
-        chrome.runtime.sendMessage<ExtensionMessage>({
+        chrome.runtime.sendMessage<ExtensionMessage<number>>({
             action: "close-tab",
             sender: "content",
-            recipient: "background"
+            recipient: "background",
+            data: addictionId
         });
     }
 

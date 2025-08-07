@@ -6,19 +6,27 @@ import QuickAdd from "./features/quick-add";
 export default function Content() {
 
     const addictions = useBlockedDomains();
-    const [showOverlay, setShowOverlay] = useState<boolean>(false);
+    const [matchedAddictionId, setMatchedAddictionId] = useState<number>();
     const [quickAddVisible, setQuickAddVisible] = useState<boolean>(true);
 
     useEffect(() => {
-        const isAddiction = addictions?.find((addiction) => {
-            return location.href.includes(addiction.url);
-        });
 
-        setShowOverlay(isAddiction !== undefined);
+        if (!addictions) return;
+
+        for (let i = 0; i < addictions.length; i++) {
+            const addiction = addictions[i];
+
+            if (location.href.includes(addiction.url)) {
+                setMatchedAddictionId(addiction.id);
+                return;
+            }
+        }
+
+        setMatchedAddictionId(undefined);
 
     }, [addictions]);
 
-    if (showOverlay) return <Overlay />
+    if (matchedAddictionId !== undefined) return <Overlay addictionId={matchedAddictionId} />
     else if (quickAddVisible) return <QuickAdd />
     else return null;
 

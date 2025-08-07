@@ -14,6 +14,27 @@ export async function getBlockedDomains(): Promise<Result<BlockedDomain[]>> {
     }
 }
 
+export async function getBlockedDomain(id: number): Promise<Result<BlockedDomain>> {
+
+    try {
+        const domains = await getBlockedDomains();
+
+        if (isErr(domains)) return domains;
+
+        const domain = domains.value.find((domain) => {
+            return domain.id === id;
+        });
+
+        if (domain) return Ok(domain);
+        else return Err(new Error(`Could not find domain with id of ${id}`));
+
+
+    } catch (error) {
+        return Err(castError(error));
+    }
+}
+
+
 export async function overwriteBlockedDomains(...domains: BlockedDomain[]): Promise<Result<BlockedDomain[]>> {
 
     try {
