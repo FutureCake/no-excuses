@@ -9,7 +9,7 @@ export interface ExtensionMessage<T,> {
 }
 
 export type DomainActivity = {
-    datetime: Date;
+    datetime: string;
     doubtingFor: number;
 }
 
@@ -23,8 +23,6 @@ export interface BlockedDomain {
     url: string;
     preventions: DomainActivity[];
     failures: Failures[];
-    totalTimeFailing: number;
-    averageSessionTimeFailing: number;
 }
 
 export type Ok<T> = { type: 'ok'; value: T };

@@ -16,13 +16,17 @@ async function handleContentMessage(action: Action, addictionId: number, sender:
         const tabId = sender.tab?.id;
         if (tabId) chrome.tabs.remove(tabId);
 
+        console.log("CLOSE");
+
         const blockedDomain = await getBlockedDomain(addictionId);
 
         if (isErr(blockedDomain)) return;
 
+        console.log(blockedDomain);
+
         updateBlockedDomain(addictionId, {
             preventions: [...blockedDomain.value.preventions, {
-                datetime: new Date(),
+                datetime: new Date().toISOString(),
                 doubtingFor: 0
             }]
         });

@@ -18,7 +18,9 @@ export default function NewAddiction() {
 
         const result = await addBlockedDomains({
             name: domain,
-            url: domain
+            url: domain,
+            failures: [],
+            preventions: []
         });
 
         if (isErr(result)) console.log("something went wrong while adding");
