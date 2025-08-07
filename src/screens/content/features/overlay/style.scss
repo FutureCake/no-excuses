@@ -1,6 +1,46 @@
 #addiction-prevention-overlay {
     position: fixed;
+    left: 0;
+    top: 0;
     width: 100vw;
     height: 100vh;
     background: rgba(255, 0, 0, 0.782);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .addiction-message {
+        color: #fff;
+        text-align: center;
+        text-shadow: 0 0 5px #000;
+        background: red;
+        box-shadow: 0 0 10px #6e0000;
+    }
+
+    #addiction-prevention-title {
+        padding: 20px 40px;
+        font-size: 60px;
+        margin-bottom: 20px;
+    }
+
+    #addiction-prevention-subtitle {
+        padding: 15px 30px;
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+
+    #addiction-prevention-suggestion {
+        padding: 10px 20px;
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+
+    #addiction-prevention-action {
+        background: #fff;
+        padding: 5px 10px;
+        color: #000;
+        box-shadow: 0 0 5px #00000042;
+        font-size: 20px;
+    }
 }

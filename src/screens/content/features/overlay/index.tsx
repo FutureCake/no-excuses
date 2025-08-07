@@ -14,8 +14,10 @@ export default function Overlay() {
 
     return (
         <div id="addiction-prevention-overlay">
-            <h1 id="addiction-prevention-title">! WTF BRO STOP !</h1>
-            <button onClick={exit}>Leave website</button>
+            <h1 className="addiction-message" id="addiction-prevention-title">! WTF BRO STOP !</h1>
+            <h2 className="addiction-message" id="addiction-prevention-subtitle">YOU ADDED THIS WEBSITE AS AN ADDICTION FOR A REASON</h2>
+            <h3 className="addiction-message" id="addiction-prevention-suggestion">safe yourself and leave the website now</h3>
+            <button id="addiction-prevention-action" onClick={exit}>Click to exit</button>
         </div>
     )
 }
