@@ -1,0 +1,13 @@
+@import 'variables';
+
+.addiction-text-input {
+    border-radius: 100px;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #000;
+    min-width: 300px;
+    text-align: center;
+    border: none;
+    box-shadow: $box-shadow;
+    margin-bottom: 20px;
+}
