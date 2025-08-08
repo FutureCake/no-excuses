@@ -1,5 +1,6 @@
-import { castError, Err, isErr, Ok } from "../utils/helpers";
-import { BlockedDomain, Result } from "../utils/types";
+import { Err, Ok, castError, isErr } from "../helpers/errors";
+import { BlockedDomain, Result } from "../types/types";
+
 
 export async function getBlockedDomains(): Promise<Result<BlockedDomain[]>> {
 

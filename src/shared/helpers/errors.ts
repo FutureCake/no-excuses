@@ -1,4 +1,4 @@
-import { Err as ErrType, Ok as OkType, Result } from "./types";
+import { Err as ErrType, Ok as OkType, Result } from "../types/types";
 
 
 export function castError(err: unknown): Error {

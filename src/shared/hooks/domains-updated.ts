@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { BlockedDomain } from "../utils/types";
+import { BlockedDomain } from "../types/types";
 
 export default function useDomainsUpdated(onUpdate: (updates: BlockedDomain[]) => void) {
 
