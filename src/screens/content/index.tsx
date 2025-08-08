@@ -8,10 +8,11 @@ export default function Content() {
     const addictions = useBlockedDomains();
     const [matchedAddictionId, setMatchedAddictionId] = useState<number>();
     const [quickAddVisible, setQuickAddVisible] = useState<boolean>(true);
+    const [exited, setExited] = useState<boolean>(false);
 
     useEffect(() => {
 
-        if (!addictions) return;
+        if (!addictions || exited) return;
 
         for (let i = 0; i < addictions.length; i++) {
             const addiction = addictions[i];
@@ -24,10 +25,17 @@ export default function Content() {
 
         setMatchedAddictionId(undefined);
 
-    }, [addictions]);
+    }, [addictions, exited]);
 
-    if (matchedAddictionId !== undefined) return <Overlay addictionId={matchedAddictionId} />
+    const onExit = () => {
+        setExited(true);
+        setQuickAddVisible(false);
+        setMatchedAddictionId(undefined);
+    }
+
+    if (matchedAddictionId !== undefined) return <Overlay addictionId={matchedAddictionId} onExit={onExit} />
     else if (quickAddVisible) return <QuickAdd />
+    else if (exited) return <button>Help me and block this shit again</button>
     else return null;
 
 }
