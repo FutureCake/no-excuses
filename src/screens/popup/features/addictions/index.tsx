@@ -1,5 +1,5 @@
 import React from "react";
-import { BlockedDomain } from "../../../../utils/types";
+import { BlockedDomain } from "../../../../shared/types/types";
 import Addiction from "./components/addiction";
 import './style.scss';
 

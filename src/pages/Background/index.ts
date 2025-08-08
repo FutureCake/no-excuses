@@ -1,6 +1,7 @@
-import { getBlockedDomain, updateBlockedDomain } from "../../services/storage";
-import { isErr } from "../../utils/helpers";
-import { Action, ExtensionMessage } from "../../utils/types";
+
+import { isErr } from "../../shared/helpers/errors";
+import { getBlockedDomain, updateBlockedDomain } from "../../shared/services/storage";
+import { Action, ExtensionMessage } from "../../shared/types/types";
 
 chrome.runtime.onMessage.addListener((message: ExtensionMessage<any>, sender) => {
 

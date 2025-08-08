@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import useBlockedDomains from "../../hooks/domains";
+import useBlockedDomains from "../../shared/hooks/domains";
 import Overlay from "./features/overlay";
 import QuickAdd from "./features/quick-add";
 
@@ -27,15 +27,15 @@ export default function Content() {
 
     }, [addictions, exited]);
 
-    const onExit = () => {
+    const onRemoveOverlay = () => {
         setExited(true);
         setQuickAddVisible(false);
         setMatchedAddictionId(undefined);
     }
 
-    if (matchedAddictionId !== undefined) return <Overlay addictionId={matchedAddictionId} onExit={onExit} />
+    if (matchedAddictionId !== undefined) return <Overlay addictionId={matchedAddictionId} onRemove={onRemoveOverlay} />
     else if (quickAddVisible) return <QuickAdd />
-    else if (exited) return <button>Help me and block this shit again</button>
+    else if (exited) return <button onClick={() => setExited(false)}>Help me and block this shit again</button>
     else return null;
 
 }

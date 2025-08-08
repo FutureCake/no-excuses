@@ -1,5 +1,5 @@
 import React from "react";
-import { addBlockedDomains } from "../../../../services/storage";
+import { addBlockedDomains } from "../../../../shared/services/storage";
 import './styles.scss';
 
 export default function QuickAdd() {

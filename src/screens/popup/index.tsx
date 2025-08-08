@@ -1,7 +1,7 @@
-import React from "react";
-import useBlockedDomains from "../../hooks/domains";
-import Addictions from "./features/addictions";
-import NewAddiction from "./features/new-addiction";
+import React from 'react';
+import useBlockedDomains from '../../shared/hooks/domains';
+import Addictions from './features/addictions';
+import NewAddiction from './features/new-addiction';
 import './style.scss';
 
 export default function Popup() {

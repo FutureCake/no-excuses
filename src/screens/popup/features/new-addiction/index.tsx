@@ -1,6 +1,6 @@
 import React from "react";
-import { addBlockedDomains } from "../../../../services/storage";
-import { isErr } from "../../../../utils/helpers";
+import { isErr } from "../../../../shared/helpers/errors";
+import { addBlockedDomains } from "../../../../shared/services/storage";
 import useValidUrl from "./hooks/valid-url";
 import './style.scss';
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { removeBlockedDomains } from "../../../../../../services/storage";
-import { isErr } from "../../../../../../utils/helpers";
+import { isErr } from "../../../../../../shared/helpers/errors";
+import { removeBlockedDomains } from "../../../../../../shared/services/storage";
 import './style.scss';
 
 export interface AddictionProps {
