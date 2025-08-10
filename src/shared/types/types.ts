@@ -21,6 +21,7 @@ export interface BlockedDomain {
     id: number;
     name: string;
     url: string;
+    allowExcuses: boolean;
     preventions: DomainActivity[];
     failures: Failures[];
 }

@@ -64,6 +64,7 @@ export async function addBlockedDomains(...newDomains: Omit<BlockedDomain, "id">
                 preventions: [],
                 failures: [],
                 id: newId,
+                allowExcuses: false,
                 name: domain
             }
         }

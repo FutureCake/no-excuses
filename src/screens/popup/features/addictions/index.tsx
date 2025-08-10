@@ -1,5 +1,6 @@
 import React from "react";
-import { BlockedDomain } from "../../types/types";
+import { BlockedDomain } from "../../../../shared/types/types";
+import ContentSection from "../../components/content-section";
 import Addiction from "./components/addiction";
 import './style.scss';
 
@@ -15,8 +16,7 @@ export default function Addictions(props: AddictionsProps) {
     const { addictions, onEditAddiction, onRemoveAddiction, onShowAddictionStats } = props;
 
     return (
-        <div id="addictions">
-            <h2 id="addictions-title">Your Addictions</h2>
+        <ContentSection title="Your addictions">
             {
                 (addictions !== undefined)
                     ? addictions.map((addiction, index) => (
@@ -30,6 +30,6 @@ export default function Addictions(props: AddictionsProps) {
                     ))
                     : <p>Failed to load your addictions :(</p>
             }
-        </div>
+        </ContentSection>
     );
 }

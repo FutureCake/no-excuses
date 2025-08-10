@@ -1,0 +1,28 @@
+#edit-container {
+    border-radius: 8px;
+    background: #141414;
+    padding: 7px 10px 10px 10px;
+    color: #fff;
+    font-size: 18px;
+
+    #excuses-wrapper {
+        display: flex;
+        align-items: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    input {
+        width: 10px;
+        aspect-ratio: 1;
+        background: #141414;
+        border-radius: 10px;
+        box-shadow: 0 0 0 2px #141414, 0 0 0 4px #fff;
+        margin: 4px;
+        margin-right: 10px;
+    }
+
+    input:checked {
+        background: #fff;
+    }
+}
