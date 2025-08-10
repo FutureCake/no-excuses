@@ -47,7 +47,7 @@ export async function overwriteBlockedDomains(...domains: BlockedDomain[]): Prom
     }
 }
 
-export async function addBlockedDomains(...newDomains: Omit<BlockedDomain, "id">[]): Promise<Result<BlockedDomain[]>> {
+export async function addBlockedDomains(...newDomains: Omit<BlockedDomain, "id">[] | string[]): Promise<Result<BlockedDomain[]>> {
 
     const domains = await getBlockedDomains();
 
@@ -55,8 +55,21 @@ export async function addBlockedDomains(...newDomains: Omit<BlockedDomain, "id">
 
     const lastId = domains.value.length > 0 ? domains.value[domains.value.length - 1].id : 0;
     const newDomainsWithId = newDomains.map((domain, index) => {
+
+        const newId = lastId + index + 1;
+
+        if (typeof domain === 'string') {
+            return {
+                url: domain,
+                preventions: [],
+                failures: [],
+                id: newId,
+                name: domain
+            }
+        }
+
         return {
-            id: lastId + index + 1,
+            id: newId,
             ...domain
         }
     });
@@ -77,14 +90,14 @@ export async function removeBlockedDomains(...ids: number[]): Promise<Result<Blo
     return await overwriteBlockedDomains(...updated);
 }
 
-export async function updateBlockedDomain(id: number, updates: Partial<BlockedDomain>): Promise<Result<BlockedDomain[]>> {
+export async function updateBlockedDomain(id: number, updater: (current: BlockedDomain) => BlockedDomain): Promise<Result<BlockedDomain[]>> {
 
     const domains = await getBlockedDomains();
 
     if (isErr(domains)) return domains;
 
     const updated = domains.value.map((domain) => {
-        return (domain.id === id) ? { ...domain, ...updates } : domain;
+        return (domain.id === id) ? updater(domain) : domain;
     });
 
     return overwriteBlockedDomains(...updated);
