@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Addictions from '../../shared/features/addictions';
 import { isErr } from '../../shared/helpers/errors';
 import useBlockedDomains from '../../shared/hooks/domains';
 import { removeBlockedDomains } from '../../shared/services/storage';
 import AddictionStats from './features/addiction-stats';
+import Addictions from './features/addictions';
 import EditAddiction from './features/edit-addiction';
 import NewAddiction from './features/new-addiction';
 import './style.scss';
