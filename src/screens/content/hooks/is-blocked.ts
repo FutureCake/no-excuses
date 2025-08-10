@@ -19,6 +19,8 @@ export default function useIsBlockedDomain(url: string): number | undefined {
             }
         }
 
+        setBlocked(undefined);
+
     }, [url, blockedDomains]);
 
     return blocked;
