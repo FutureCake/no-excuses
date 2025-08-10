@@ -25,6 +25,10 @@ export interface BlockedDomain {
     failures: Failures[];
 }
 
+export type DomainStatistics = {
+
+}
+
 export type Ok<T> = { type: 'ok'; value: T };
 export type Err<E extends Error> = { type: 'err'; error: E };
 

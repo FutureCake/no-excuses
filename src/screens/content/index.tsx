@@ -1,41 +1,19 @@
-import React, { useEffect, useState } from "react";
-import useBlockedDomains from "../../shared/hooks/domains";
+import React, { useState } from "react";
+import { addBlockedDomains } from "../../shared/services/storage";
 import Overlay from "./features/overlay";
-import QuickAdd from "./features/quick-add";
+import QuickAction from "./features/quick-action";
+import useIsBlockedDomain from "./hooks/is-blocked";
 
 export default function Content() {
 
-    const addictions = useBlockedDomains();
-    const [matchedAddictionId, setMatchedAddictionId] = useState<number>();
-    const [quickAddVisible, setQuickAddVisible] = useState<boolean>(true);
+    const blockedId = useIsBlockedDomain(location.href);
     const [exited, setExited] = useState<boolean>(false);
 
-    useEffect(() => {
-
-        if (!addictions || exited) return;
-
-        for (let i = 0; i < addictions.length; i++) {
-            const addiction = addictions[i];
-
-            if (location.href.includes(addiction.url)) {
-                setMatchedAddictionId(addiction.id);
-                return;
-            }
-        }
-
-        setMatchedAddictionId(undefined);
-
-    }, [addictions, exited]);
-
-    const onRemoveOverlay = () => {
-        setExited(true);
-        setQuickAddVisible(false);
-        setMatchedAddictionId(undefined);
+    const onBlock = () => {
+        addBlockedDomains(location.href.slice(4));
     }
 
-    if (matchedAddictionId !== undefined) return <Overlay addictionId={matchedAddictionId} onRemove={onRemoveOverlay} />
-    else if (quickAddVisible) return <QuickAdd />
-    else if (exited) return <button onClick={() => setExited(false)}>Help me and block this shit again</button>
-    else return null;
-
+    if (exited) return <QuickAction icon={""} title={"Block website again"} onClick={() => setExited(false)} />
+    else if (blockedId !== undefined) return <Overlay addictionId={blockedId} onRemove={() => setExited(true)} />
+    else return <QuickAction icon="" title="Block this website" onClick={onBlock} />
 }
