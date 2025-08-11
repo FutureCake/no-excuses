@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import useBlockedDomains from "../../../shared/hooks/domains";
+import { BlockedDomain } from "../../../shared/types/types";
 
-export default function useIsBlockedDomain(url: string): number | undefined {
+export default function useIsBlockedDomain(url: string): BlockedDomain | undefined {
 
     const blockedDomains = useBlockedDomains();
-    const [blocked, setBlocked] = useState<number>();
+    const [blocked, setBlocked] = useState<BlockedDomain>();
 
     useEffect(() => {
 
@@ -14,7 +15,7 @@ export default function useIsBlockedDomain(url: string): number | undefined {
             const addiction = blockedDomains[i];
 
             if (location.href.includes(addiction.url)) {
-                setBlocked(addiction.id);
+                setBlocked(addiction);
                 return;
             }
         }

@@ -7,13 +7,14 @@ import Excuse from "./components/excuse";
 import "./style.scss";
 
 export type OverlayProps = {
+    allowExcuses: boolean;
     addictionId: number;
     onRemove: () => void;
 }
 
 export default function Overlay(props: OverlayProps) {
 
-    const { addictionId, onRemove } = props;
+    const { addictionId, allowExcuses, onRemove } = props;
     const [showExcuse, setShowExcuse] = useState<boolean>(false);
 
     const exit = () => {
@@ -29,7 +30,7 @@ export default function Overlay(props: OverlayProps) {
         <div id="addiction-prevention-overlay">
             {showExcuse
                 ? <Excuse onExit={exit} onEnter={onRemove} />
-                : <Block onExit={exit} onEnter={() => setShowExcuse(true)} />
+                : <Block onExit={exit} onEnter={() => setShowExcuse(true)} allowExcuses={allowExcuses} />
             }
         </div>
     )

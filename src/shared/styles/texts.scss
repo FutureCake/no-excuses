@@ -4,16 +4,11 @@
     font-size: $size;
     color: $primary-color;
     font-family: $font-stack;
-    padding: $padding-y $padding-x;
-    text-shadow: $text-shadow;
-    box-shadow: $box-shadow;
-    background: $primary-background;
-    text-align: center;
-    margin-bottom: 20px;
 }
 
 .addiction-text-60 {
-    @include addiction-text(60px, 30px, 60px)
+    @include addiction-text(60px, 30px, 60px);
+    margin-bottom: 20px;
 }
 
 .addiction-text-40 {

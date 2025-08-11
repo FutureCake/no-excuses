@@ -1,11 +1,19 @@
 @import 'variables';
 
 .strong-addiction-button {
-    background: $primary-background;
+    background: #fff;
+    font-weight: bold;
     border-radius: 100px;
-    border: 3px solid $primary-color;
     padding: 10px 20px;
-    color: $primary-color;
+    color: #000;
     font-size: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    border: none;
+}
+
+.shy-addiction-button {
+    padding: 5px 15px;
+    border-radius: 30px;
+    background: #414141;
+    color: #fff;
+    border: none;
 }

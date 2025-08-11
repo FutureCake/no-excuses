@@ -16,12 +16,7 @@ export default function NewAddiction() {
     const addAddiction = async () => {
         if (!domain || !valid) return;
 
-        const result = await addBlockedDomains({
-            name: domain,
-            url: domain,
-            failures: [],
-            preventions: []
-        });
+        const result = await addBlockedDomains(domain);
 
         if (isErr(result)) console.log("something went wrong while adding");
 

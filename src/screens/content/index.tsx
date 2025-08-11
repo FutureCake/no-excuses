@@ -8,14 +8,14 @@ import useIsBlockedDomain from "./hooks/is-blocked";
 
 export default function Content() {
 
-    const blockedId = useIsBlockedDomain(location.href);
+    const blocked = useIsBlockedDomain(location.href);
     const [exited, setExited] = useState<boolean>(false);
 
     const onBlock = () => {
-        addBlockedDomains(location.hostname.slice(5));
+        addBlockedDomains(location.hostname.slice(4));
     }
 
-    if (exited && blockedId !== undefined) return <QuickAction icon={Block} title="Block website again" onClick={() => setExited(false)} edgePadding={25} />
-    else if (blockedId !== undefined) return <Overlay addictionId={blockedId} onRemove={() => setExited(true)} />
+    if (exited && blocked !== undefined) return <QuickAction icon={Block} title="Block website again" onClick={() => setExited(false)} edgePadding={25} />
+    else if (blocked !== undefined) return <Overlay allowExcuses={blocked.allowExcuses} addictionId={blocked.id} onRemove={() => setExited(true)} />
     else return <QuickAction icon={Add} title="Block this website" onClick={onBlock} edgePadding={25} />
 }
