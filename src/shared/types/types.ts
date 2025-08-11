@@ -27,7 +27,13 @@ export interface BlockedDomain {
 }
 
 export type DomainStatistics = {
-
+    name: string;
+    preventions: DomainActivity[];
+    avgPreventionDoubtTime: number;
+    maxPreventionDoubtTime: number;
+    failures: Failures[];
+    avgFailureDoubtTime: number;
+    maxFailureDoubtTime: number;
 }
 
 export type Ok<T> = { type: 'ok'; value: T };

@@ -12,6 +12,7 @@ export default function useDomainStatistics(addictionId?: number): DomainStatist
     const [statistics, setStatistics] = useState<DomainStatistics | DomainStatistics[]>();
 
     useEffect(() => {
+
         (async () => {
 
             let domains: Result<BlockedDomain | BlockedDomain[], Error>;
@@ -38,7 +39,8 @@ export default function useDomainStatistics(addictionId?: number): DomainStatist
             }
 
             setStatistics(extractStatistics(domains.value));
-        });
+        })();
+
     }, [addictionId]);
 
     return statistics;
