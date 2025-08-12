@@ -1,32 +1,71 @@
 import { BlockedDomain, DomainStatistics } from "../types/types";
 
+function getAverage(items: number[]): number;
+
+function getAverage<
+    T extends Record<string, any>,
+    K extends {
+        [P in keyof T]: T[P] extends number ? P : never
+    }[keyof T]
+>(items: T[], key: K): number;
+
+function getAverage(items: any[], key?: string): number {
+    if (items.length === 0) return 0;
+
+    let sum = 0;
+
+    if (typeof items[0] === "number") {
+        sum = (items as number[]).reduce((acc, val) => acc + val, 0);
+    } else {
+        if (!key) throw new Error("Key is required when averaging object values.");
+        sum = (items as Record<string, number>[]).reduce((acc, obj) => acc + obj[key]!, 0);
+    }
+
+    return sum / items.length;
+}
+
+function getMax(items: number[]): number;
+
+function getMax<
+    T extends Record<string, any>,
+    K extends {
+        [P in keyof T]: T[P] extends number ? P : never
+    }[keyof T]
+>(items: T[], key: K): number;
+
+function getMax(items: any[], key?: string): number {
+    if (items.length === 0) return 0;
+
+    if (typeof items[0] === "number") {
+        return Math.max(...(items as number[]));
+    } else {
+        if (!key) throw new Error("Key is required when finding max in object values.");
+        return Math.max(...(items as Record<string, number>[]).map(obj => obj[key]!));
+    }
+}
+
 export default function extractStatistics(domain: BlockedDomain): DomainStatistics {
 
     const { preventions, failures, name } = domain;
 
-    const avgFailureDoubtTime = failures.reduce((acc, current) => {
-        return acc + current.doubtingFor
-    }, 0) / failures.length / 1000;
+    const totalPreventions = preventions.length;
+    const totalFailures = failures.length;
 
-    const maxFailureDoubtTime = failures.reduce((prev, current) => {
-        return prev > current.doubtingFor ? prev : current.doubtingFor
-    }, 0) / 1000;
+    const avgFailureDoubtTime = getAverage(failures, "doubtingFor") / 1000;
+    const maxFailureDoubtTime = getMax(failures, "doubtingFor") / 1000;
 
-    const avgPreventionDoubtTime = preventions.reduce((acc, current) => {
-        return acc + current.doubtingFor
-    }, 0) / preventions.length / 1000;
-
-    const maxPreventionDoubtTime = preventions.reduce((prev, current) => {
-        return prev > current.doubtingFor ? prev : current.doubtingFor
-    }, 0) / 1000;
+    const avgPreventionDoubtTime = getAverage(preventions, "doubtingFor") / 1000;
+    const maxPreventionDoubtTime = getMax(preventions, "doubtingFor") / 1000;
 
     return {
+        name,
+        failures,
         preventions,
+        totalPreventions,
+        totalFailures,
         avgFailureDoubtTime,
         avgPreventionDoubtTime,
         maxFailureDoubtTime,
         maxPreventionDoubtTime,
-        failures,
-        name
     };
 }
