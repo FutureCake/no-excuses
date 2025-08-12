@@ -44,6 +44,8 @@ function getMax(items: any[], key?: string): number {
     }
 }
 
+const toOneDecimal = (num: number) => Math.round(num * 10) / 10;
+
 export default function extractStatistics(domain: BlockedDomain): DomainStatistics {
 
     const { preventions, failures, name } = domain;
@@ -51,11 +53,11 @@ export default function extractStatistics(domain: BlockedDomain): DomainStatisti
     const totalPreventions = preventions.length;
     const totalFailures = failures.length;
 
-    const avgFailureDoubtTime = getAverage(failures, "doubtingFor") / 1000;
-    const maxFailureDoubtTime = getMax(failures, "doubtingFor") / 1000;
+    const avgFailureDoubtTime = toOneDecimal(getAverage(failures, "doubtingFor") / 1000);
+    const maxFailureDoubtTime = toOneDecimal(getMax(failures, "doubtingFor") / 1000);
 
-    const avgPreventionDoubtTime = getAverage(preventions, "doubtingFor") / 1000;
-    const maxPreventionDoubtTime = getMax(preventions, "doubtingFor") / 1000;
+    const avgPreventionDoubtTime = toOneDecimal(getAverage(preventions, "doubtingFor") / 1000);
+    const maxPreventionDoubtTime = toOneDecimal(getMax(preventions, "doubtingFor") / 1000);
 
     return {
         name,
