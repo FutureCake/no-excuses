@@ -1,16 +1,23 @@
 @import 'variables';
 
-.addiction-text-input-20 {
+@mixin addiction-text-input($font-size, $padding-y, $padding-x) {
+    font-size: $font-size;
     border-radius: 100px;
-    padding: 10px 20px;
-    font-size: 20px;
+    padding: $padding-y $padding-x;
     color: #000;
-    min-width: 300px;
-    text-align: center;
     border: none;
+    background: #fff;
+
+    &:focus {
+        border: none;
+        outline: none;
+    }
 }
 
-.addiction-text-input-20:focus {
-    border: none;
-    outline: none;
+.addiction-text-input-18 {
+    @include addiction-text-input(18px, 8px, 16px);
+}
+
+.addiction-text-input-20 {
+    @include addiction-text-input(20px, 10px, 20px);
 }

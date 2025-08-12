@@ -18,10 +18,10 @@ export default function Excuse(props: ExcuseProps) {
             <h3 className="addiction-text-30 addiction-text-spacing">At least provide me a good reason before I let you enter</h3>
 
             <input className="addiction-text-input-20" id="addiction-excuse-input" onChange={(e) => setExcuse(e.target.value)} value={excuse} type="text" placeholder='Your "good" reason'></input>
-            {(excuse !== undefined && excuse.length > 2) && <button className="strong-addiction-button" onClick={() => onEnter(excuse)}>enter... </button>}
+            {(excuse !== undefined && excuse.length > 2) && <button className="addiction-button-20" onClick={() => onEnter(excuse)}>enter... </button>}
 
             <h3 className="addiction-text-30 addiction-text-spacing">You're right this is dumb...</h3>
-            <button className="strong-addiction-button" onClick={onExit}>Leave now</button>
+            <button className="addiction-button-20" onClick={onExit}>Leave now</button>
         </div>
     );
 }

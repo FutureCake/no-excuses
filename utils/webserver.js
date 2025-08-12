@@ -27,7 +27,7 @@ var compiler = webpack(config);
 
 var server = new WebpackDevServer(
     {
-        https: false, //was true (original false) 
+        https: true, //was true (original false) 
         hot: true,
         liveReload: false,
         client: {

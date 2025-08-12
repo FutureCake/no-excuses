@@ -1,19 +1,25 @@
 @import 'variables';
 
-.strong-addiction-button {
+@mixin addiction-button($size, $padding-y, $padding-x) {
+    font-size: $size;
     background: #fff;
-    font-weight: bold;
-    border-radius: 100px;
-    padding: 10px 20px;
     color: #000;
-    font-size: 20px;
+    padding: $padding-y $padding-x;
+    font-family: $font-stack;
+    border-radius: 100px;
     border: none;
 }
 
-.shy-addiction-button {
-    padding: 5px 15px;
-    border-radius: 30px;
+.addiction-button-20 {
+    @include addiction-button(20px, 10px, 20px);
+    font-weight: bold;
+}
+
+.addiction-button-18 {
+    @include addiction-button(18px, 8px, 16px);
+}
+
+.addiction-button-12 {
+    @include addiction-button(12px, 5px, 15px);
     background: #414141;
-    color: #fff;
-    border: none;
 }

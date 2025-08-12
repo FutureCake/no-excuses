@@ -1,16 +1,26 @@
-import React from "react";
+import React, { ChangeEvent, KeyboardEvent } from "react";
 import { isErr } from "../../../../shared/helpers/errors";
 import { addBlockedDomains } from "../../../../shared/services/storage";
+import "../../../../shared/styles/buttons.scss";
+import "../../../../shared/styles/inputs.scss";
 import useValidUrl from "./hooks/valid-url";
-import './style.scss';
+import "./style.scss";
 
 export default function NewAddiction() {
 
     const { valid, domain, setUrl, url } = useValidUrl();
 
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
         const formatted = e.target.value.trim().toLowerCase();
         setUrl(formatted);
+    }
+
+    const onKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
+        const key = e.key;
+
+        if (key === 'Enter') {
+            addAddiction();
+        }
     }
 
     const addAddiction = async () => {
@@ -25,8 +35,15 @@ export default function NewAddiction() {
 
     return (
         <div id="new-addiction">
-            <input id="new-addiction-input" type="text" placeholder="Add a new addiction url" value={url} onChange={onChange} />
-            {valid && <button id="add-addiction" onClick={addAddiction}>{`Add ${domain}`}</button>}
+            <input
+                className="addiction-text-input-18"
+                type="text"
+                placeholder="Add a new addiction url"
+                value={url}
+                onChange={onChange}
+                onKeyDown={onKeyPress}
+            />
+            {valid && <button id="add-addiction" className="addiction-button-18" onClick={addAddiction}>Add&nbsp;<span>{domain}</span></button>}
         </div>
     );
 }

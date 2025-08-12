@@ -1,25 +1,12 @@
 #new-addiction {
+    margin-top: 15px;
+}
 
-    #new-addiction-input {
-        padding: 5px 10px;
-        border-radius: 100px;
-        border: none;
-        min-width: 300px;
-        margin-top: 10px;
-        background: #fff;
+#add-addiction {
+    margin-left: 10px;
+    background: #4dffaf;
 
-        &:focus {
-            outline: none;
-            box-shadow: none;
-            border: none;
-        }
-    }
-
-    #add-addiction {
-        background: #007900;
-        color: #fff;
-        padding: 5px 10px;
-        border-radius: 100px;
-        margin-left: -20px;
+    span {
+        font-weight: bold;
     }
 }
