@@ -21,7 +21,7 @@ export default function AddictionStats(props: AddictionStatsProps) {
 
     return (
         <ContentSection title={`${name}'s statistics`} onClose={onClose}>
-            <div className="addiction-content-container addiction-text-18">
+            <div className="addiction-text-18">
 
                 {(totalFailures === 0 && totalPreventions === 0) && <p> Since you added <span>{name}</span> you havent tried to visit your addiction very good!</p>}
 

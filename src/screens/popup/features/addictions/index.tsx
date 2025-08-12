@@ -29,7 +29,7 @@ export default function Addictions(props: AddictionsProps) {
                             key={index}
                         />
                     ))
-                    : <p className="addiction-text-18" id="no-addictions">You dont have any addictions yet.<br />Add one above or do it directly from the website</p>
+                    : <p className="addiction-text-18">You dont have any addictions yet.<br />Add one above or do it directly from the website</p>
             }
         </ContentSection>
     );

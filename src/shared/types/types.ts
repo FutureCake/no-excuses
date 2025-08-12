@@ -17,11 +17,17 @@ export type Failures = DomainActivity & {
     reason: string;
 }
 
+export type TimeConstraint = {
+
+}
+
 export interface BlockedDomain {
     id: number;
     name: string;
     url: string;
     allowExcuses: boolean;
+    allowTimeConstraints: boolean;
+    timeConstraints: TimeConstraint[];
     preventions: DomainActivity[];
     failures: Failures[];
 }
