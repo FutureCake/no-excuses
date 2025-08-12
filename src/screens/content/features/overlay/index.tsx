@@ -35,8 +35,7 @@ export default function Overlay(props: OverlayProps) {
         chrome.runtime.sendMessage<ExtensionMessage<number>>({
             action: "close-tab",
             sender: "content",
-            recipient: "background",
-            data: addictionId
+            recipient: "background"
         });
     }
 
