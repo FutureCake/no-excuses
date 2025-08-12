@@ -11,11 +11,21 @@ export default function Content() {
     const blocked = useIsBlockedDomain(location.href);
     const [exited, setExited] = useState<boolean>(false);
 
+    const allowPageStyles = (allow: boolean) => {
+        // const storedStyles = Array.from(document.head.querySelectorAll("style"));
+        // const storedStyles = styleElements;
+        // storedStyles.forEach(el => el.remove());
+    }
+
+    const handleOverlayVisibility = (visible: boolean) => {
+        setExited(visible);
+    }
+
     const onBlock = () => {
         addBlockedDomains(location.hostname.slice(4));
     }
 
-    if (exited && blocked !== undefined) return <QuickAction icon={Block} title="Block website again" onClick={() => setExited(false)} edgePadding={25} />
-    else if (blocked !== undefined) return <Overlay allowExcuses={blocked.allowExcuses} addictionId={blocked.id} onRemove={() => setExited(true)} />
+    if (exited && blocked !== undefined) return <QuickAction icon={Block} title="Block website again" onClick={() => handleOverlayVisibility(false)} edgePadding={25} />
+    else if (blocked !== undefined) return <Overlay allowExcuses={blocked.allowExcuses} addictionId={blocked.id} onRemove={() => handleOverlayVisibility(true)} />
     else return <QuickAction icon={Add} title="Block this website" onClick={onBlock} edgePadding={25} />
 }
