@@ -28,10 +28,12 @@ export interface BlockedDomain {
 
 export type DomainStatistics = {
     name: string;
+    failures: Failures[];
     preventions: DomainActivity[];
+    totalFailures: number;
+    totalPreventions: number;
     avgPreventionDoubtTime: number;
     maxPreventionDoubtTime: number;
-    failures: Failures[];
     avgFailureDoubtTime: number;
     maxFailureDoubtTime: number;
 }

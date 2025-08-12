@@ -6,7 +6,7 @@ import useDomainsUpdated from "./domains-updated";
 
 export default function useBlockedDomains() {
 
-    const [addictions, setAddictions] = useState<BlockedDomain[]>();
+    const [addictions, setAddictions] = useState<BlockedDomain[]>([]);
 
     useDomainsUpdated(setAddictions);
 

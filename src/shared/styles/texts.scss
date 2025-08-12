@@ -12,13 +12,17 @@
 }
 
 .addiction-text-40 {
-    @include addiction-text(40px, 20px, 40px)
+    @include addiction-text(40px, 20px, 40px);
 }
 
 .addiction-text-30 {
-    @include addiction-text(30px, 15px, 30px)
+    @include addiction-text(30px, 15px, 30px);
 }
 
 .addiction-text-20 {
-    @include addiction-text(20px, 10px, 20px)
+    @include addiction-text(20px, 10px, 20px);
+}
+
+.addiction-text-18 {
+    @include addiction-text(18px, 0, 0);
 }

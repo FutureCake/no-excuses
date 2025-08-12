@@ -43,7 +43,11 @@ export default function NewAddiction() {
                 onChange={onChange}
                 onKeyDown={onKeyPress}
             />
-            {valid && <button id="add-addiction" className="addiction-button-18" onClick={addAddiction}>Add&nbsp;<span>{domain}</span></button>}
+            {valid &&
+                <button id="add-addiction" className="addiction-button-18" onClick={addAddiction}>
+                    Add&nbsp;<span>{domain}</span>
+                </button>
+            }
         </div>
     );
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer } from "react";
 import objReducer from "../../../../shared/helpers/object-reducer";
 import { updateBlockedDomain } from "../../../../shared/services/storage";
+import "../../../../shared/styles/containers.scss";
 import { BlockedDomain } from "../../../../shared/types/types";
 import ContentSection from "../../components/content-section";
 import useBlockedDomain from "./hooks/blocked-domain";
@@ -35,7 +36,7 @@ export default function EditAddiction(props: EditAddictionProps) {
 
     return (
         <ContentSection title={`Edit ${values.name}`} onClose={onClose}>
-            <section id="edit-container">
+            <section className="addiction-content-container" id="edit-container">
                 <div id="excuses-wrapper">
                     <input id="excuses" name="excuses" type="checkbox" onChange={(e) => dispatch({ allowExcuses: e.target.checked })} checked={values.allowExcuses} />
                     <label htmlFor="excuses">Allow excuses</label>

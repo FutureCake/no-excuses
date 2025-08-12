@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../../../../../../shared/styles/containers.scss";
 import './style.scss';
 
 export interface AddictionProps {
@@ -19,7 +20,7 @@ export default function Addiction(props: AddictionProps) {
     }
 
     return (
-        <div className="addiction" onMouseOver={() => setActionVisibility(true)} onMouseOut={() => setActionVisibility(false)}>
+        <div className="addiction addiction-content-container" onMouseOver={() => setActionVisibility(true)} onMouseOut={() => setActionVisibility(false)}>
             <h3 className="addiction-title">{name}</h3>
             {(showActions) &&
                 <div className="addiction-actions">

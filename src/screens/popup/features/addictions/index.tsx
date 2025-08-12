@@ -1,11 +1,12 @@
 import React from "react";
+import "../../../../shared/styles/texts.scss";
 import { BlockedDomain } from "../../../../shared/types/types";
 import ContentSection from "../../components/content-section";
 import Addiction from "./components/addiction";
 import './style.scss';
 
 export type AddictionsProps = {
-    addictions: BlockedDomain[] | undefined;
+    addictions: BlockedDomain[];
     onEditAddiction?: (addictionId: number) => void;
     onRemoveAddiction?: (addictionId: number) => void;
     onShowAddictionStats?: (addictionId: number) => void;
@@ -18,7 +19,7 @@ export default function Addictions(props: AddictionsProps) {
     return (
         <ContentSection title="Your addictions">
             {
-                (addictions !== undefined)
+                (addictions.length > 0)
                     ? addictions.map((addiction, index) => (
                         <Addiction
                             {...addiction}
@@ -28,7 +29,7 @@ export default function Addictions(props: AddictionsProps) {
                             key={index}
                         />
                     ))
-                    : <p>Failed to load your addictions :(</p>
+                    : <p className="addiction-text-18" id="no-addictions">You dont have any addictions yet.<br />Add one above or do it directly from the website</p>
             }
         </ContentSection>
     );
