@@ -11,12 +11,6 @@ export default function Content() {
     const blocked = useIsBlockedDomain(location.href);
     const [exited, setExited] = useState<boolean>(false);
 
-    const allowPageStyles = (allow: boolean) => {
-        // const storedStyles = Array.from(document.head.querySelectorAll("style"));
-        // const storedStyles = styleElements;
-        // storedStyles.forEach(el => el.remove());
-    }
-
     const handleOverlayVisibility = (visible: boolean) => {
         setExited(visible);
     }

@@ -1,6 +1,7 @@
 @import 'variables';
 
 @mixin addiction-button($size, $padding-y, $padding-x) {
+    all: unset;
     font-size: $size;
     background: #fff;
     color: #000;
@@ -8,6 +9,7 @@
     font-family: $font-stack;
     border-radius: 100px;
     border: none;
+    align-self: flex-start
 }
 
 .addiction-button-20 {

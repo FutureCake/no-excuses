@@ -1,12 +1,14 @@
 @import 'variables';
 
 @mixin addiction-text-input($font-size, $padding-y, $padding-x) {
+    all: unset;
     font-size: $font-size;
     border-radius: 100px;
     padding: $padding-y $padding-x;
     color: #000;
     border: none;
     background: #fff;
+    align-self: flex-start;
 
     &:focus {
         border: none;
